@@ -1,9 +1,308 @@
 
 Assignment: CS112 Lab1
-Student names:
-Student userids:
+Student names: Sam Steen, Gynelle Sackie - Mensah
+Student userids: sbs28, gas22
 
 -------------------------------------------
 
-Step 1. ----------------- <time> -----------------------
+Step 1. ----------------- 1:23 -----------------------
+CODE: 
+#include <iostream>
+using namespace std;
 
+int main() {
+    cout << "Enter Your Grade" << endl;
+    unsigned int grade;
+    char letter_grade;
+    cin >> grade;
+    if (grade >= 90) {
+        letter_grade = 'A';
+    }
+    else if (grade >= 80) {
+        letter_grade = 'B';
+    }
+    else if (grade >= 70) {
+        letter_grade = 'C';
+    }
+    else if (grade >= 60) {
+        letter_grade = 'D';
+    }
+    else {
+        letter_grade = 'F';
+    }
+    cout << "Your grade is " << letter_grade << endl;
+    return 0;
+}   
+
+OUTPUT:
+Enter Your Grade
+57
+Your grade is F
+
+Step 2. ----------------- 1:48 -----------------------
+CODE:
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string plan;
+    cout << "What plan do you have?" << endl;
+    cin >> plan;
+    unsigned months;
+    cout << "For how many months?" << endl;
+    cin >> months;
+    short cost;
+    if (months == 1) {
+        cost = 90;
+    }
+    else if (plan == "silver") {
+        cost = 60;
+    }
+    else {
+        if (months <= 6) {
+            cost = 70;
+        }
+        else {
+            cost = 35;
+        }
+    }
+    cout << "The cost for your plan is $" << cost << endl;
+    return 0;
+}   
+
+OUTPUT:
+What plan do you have?
+gold
+For how many months?
+5
+The cost for your plan is $70
+
+Step 3. ----------------- 1:59 -----------------------
+CODE:
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string plan;
+    while (plan != "gold" && plan != "silver") {
+        cout << "Enter plan: ";
+        cin >> plan;
+        if (plan != "gold" && plan != "silver") {
+            cout << "That's not a valid option." << endl;
+        }
+    }
+    unsigned months;
+    cout << "For how many months?" << endl;
+    cin >> months;
+    short cost;
+    if (months == 1) {
+        cost = 90;
+    }
+    else if (plan == "silver") {
+        cost = 60;
+    }
+    else {
+        if (months <= 6) {
+            cost = 70;
+        }
+        else {
+            cost = 35;
+        }
+    }
+    cout << "The cost for your plan is $" << cost << endl;
+    return 0;
+}   
+
+OUTPUT:
+Enter plan: blue
+That's not a valid option.
+Enter plan: silver
+For how many months?
+1
+The cost for your plan is $90
+
+Step 4. ----------------- 2:05 -----------------------
+CODE:
+#include <iostream>
+using namespace std;
+
+int main() {
+    char letter;
+    cout << "Enter a letter: ";
+    cin >> letter;
+    switch (letter) {
+        case 'a':
+        case 'e':
+        case 'i':
+        case 'o':
+        case 'u':
+            cout << "Letter is a vowel." << endl;
+        break;
+        default:
+            cout << "Letter is a consonant." << endl;
+        break;
+    }
+    return 0;
+}   
+
+OUTPUT:
+[root@Nazgul-3 cs112-lab1-assignment]# ./lab1
+Enter a letter: a
+Letter is a vowel.
+[root@Nazgul-3 cs112-lab1-assignment]# ./lab1
+Enter a letter: b
+Letter is a consonant.
+[root@Nazgul-3 cs112-lab1-assignment]# ./lab1
+Enter a letter: i
+Letter is a vowel.
+[root@Nazgul-3 cs112-lab1-assignment]# ./lab1
+Enter a letter: j
+Letter is a consonant.
+
+Step 5. ----------------- 2:11 -----------------------
+CODE:
+#include <iostream>
+#include <cassert>
+using namespace std;
+
+int main() {
+    unsigned values[8];
+    for (int i=0; i < 8; i++) {
+        values[i] = i * 7;
+    }
+    assert(values[0] == 0);
+    assert(values[3] == 21);
+    assert(values[7] == 49);
+    cout << "All tests passed!" << endl;
+    return 0;
+}   
+OUTPUT:
+[root@Nazgul-3 cs112-lab1-assignment]# ./lab1
+All tests passed!
+
+Step 6. ----------------- 2:27 -----------------------
+CODE:
+#include <iostream>
+#include <cassert>
+using namespace std;
+
+int main() {
+    double my_array[100];
+    for (int i = 0; i < 100; i++) {
+        my_array[i] = i * .1;
+    }
+    double sum_var;
+    for (int i = 99; i > -1; i--) {
+        sum_var += my_array[i];
+    }
+    cout << "Resulting sum: " << sum_var << endl;
+    return 0;
+}   
+
+OUTPUT:
+[root@Nazgul-3 cs112-lab1-assignment]# ./lab1
+Resulting sum: 495
+
+Step 7. ----------------- 2:34 -----------------------
+CODE:
+#include <iostream>
+#include <cassert>
+using namespace std;
+
+bool check_if_vowel(char letter) {
+    switch (letter) {
+        case 'a':
+        case 'e':
+        case 'i':
+        case 'o':
+        case 'u':
+            return true;
+        break;
+        default:
+            return false;
+        break;
+    }
+}
+
+int main() {
+    char letter;
+    cout << "Enter a letter: ";
+    cin >> letter;
+    bool is_vowel;
+    is_vowel = check_if_vowel(letter);
+    if (is_vowel) {
+        cout << "Your letter is a vowel." << endl;
+    }
+    else {
+        cout << "Your letter is a consonant." << endl;
+    }
+    return 0;
+}
+
+OUTPUT:
+[root@Nazgul-3 cs112-lab1-assignment]# ./lab1
+Enter a letter: a
+Your letter is a vowel.
+[root@Nazgul-3 cs112-lab1-assignment]# ./lab1
+Enter a letter: b
+Your letter is a consonant.
+
+Step 8. ----------------- 2:43 -----------------------
+CODE:
+#include <iostream>
+#include <string>
+using namespace std;
+
+string get_plan() {
+    string plan;
+    while (plan != "gold" && plan != "silver") {
+        cout << "Enter plan: ";
+        cin >> plan;
+        if (plan != "gold" && plan != "silver") {
+            cout << "That's not a valid option." << endl;
+        }
+    }
+    return plan;
+}
+
+int get_months() {
+    int months;
+    cout << "For how many months?" << endl;
+    cin >> months;
+    return months;
+}
+
+int compute_costs(int months, string plan) {
+    int cost;
+    if (months == 1) {
+        cost = 90;
+    }
+    else if (plan == "silver") {
+        cost = 60;
+    }
+    else {
+        if (months <= 6) {
+            cost = 70;
+        }
+        else {
+            cost = 35;
+        }
+    }
+    return cost;
+}
+
+int main() {
+    string my_plan = get_plan();
+    int num_months = get_months();
+    int my_cost = compute_costs(num_months, my_plan);
+    cout << "The cost for your plan is $" << my_cost << endl;
+    return 0;
+}
+
+OUTPUT:
+Enter plan: gold
+For how many months?
+5
+The cost for your plan is $70
